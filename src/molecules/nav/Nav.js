@@ -1,4 +1,4 @@
-import Typography from "../../atom/typography/Typhography";
+import Typography from "../../atoms/typography/Typhography";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 const Nav = (props) => {

@@ -1,7 +1,7 @@
 import CodingCampFeedback from "../molecules/codingcampfeedback/CodingCampFeedback"
 import TrainerFeedback from "../molecules/trainerfeedback/TrainerFeedback"
 import EnvironmentFeedback from "../molecules/environmentfeedback/EnvironmentFeedback"
-import Button from "../atom/button/Button"
+import Button from "../atoms/button/Button"
 const Form=(props)=>{
     return(
         <form>

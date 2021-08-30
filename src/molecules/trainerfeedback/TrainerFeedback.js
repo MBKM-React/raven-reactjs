@@ -1,6 +1,6 @@
-import Label from "../../atom/label/Label"
-import TextField from "../../atom/textfield/TextField"
-import TextArea from "../../atom/textarea/TextArea"
+import Label from "../../atoms/label/Label"
+import TextField from "../../atoms/textfield/TextField"
+import TextArea from "../../atoms/textarea/TextArea"
 const TrainerFeedback=()=>{
     return(
         <>

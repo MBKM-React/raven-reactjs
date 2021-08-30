@@ -1,6 +1,6 @@
-import Label from "../../atom/label/Label";
-import TextField from "../../atom/textfield/TextField";
-import RadioButton from "../../atom/radiobutton/RadioButton";
+import Label from "../../atoms/label/Label";
+import TextField from "../../atoms/textfield/TextField";
+import RadioButton from "../../atoms/radiobutton/RadioButton";
 
 const CodingCampFeedback = (props) => {
   return (

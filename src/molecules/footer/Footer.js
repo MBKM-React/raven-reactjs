@@ -1,4 +1,4 @@
-import Label from "../../atom/label/Label"
+import Label from "../../atoms/label/Label"
 const Footer=(props)=>{
     return(
         <footer>

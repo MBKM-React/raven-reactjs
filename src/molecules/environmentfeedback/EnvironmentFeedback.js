@@ -1,7 +1,7 @@
-import Label from "../../atom/label/Label"
-import RadioButton from "../../atom/radiobutton/RadioButton"
-import TextField from "../../atom/textfield/TextField"
-import TextArea from "../../atom/textarea/TextArea"
+import Label from "../../atoms/label/Label"
+import RadioButton from "../../atoms/radiobutton/RadioButton"
+import TextField from "../../atoms/textfield/TextField"
+import TextArea from "../../atoms/textarea/TextArea"
 
 
 const EnvironmentFeedback=(props)=>{
