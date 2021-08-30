@@ -1,4 +1,4 @@
-import FeedbackForm from './Templates/FeedbackForm';
+import FeedbackForm from './templates/FeedbackForm';
 const App = () => {
   return (
     <FeedbackForm/>
