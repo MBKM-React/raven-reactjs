@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import "./FeedbackForm.css";
-import Button from "../atom/button/Button";
 import Nav from "../molecules/nav/Nav";
-import CodingCampFeedback from "../molecules/codingcampfeedback/CodingCampFeedback";
-import TrainerFeedback from "../molecules/trainerfeedback/TrainerFeedback";
-import EnvironmentFeedback from "../molecules/environmentfeedback/EnvironmentFeedback"
+import Section from "../organisms/Section";
+import Form from "../organisms/Form";
 import Footer from "../molecules/footer/Footer";
-
 
 const FeedbackForm = () => {
   const [input, setInput] = useState({
@@ -41,25 +38,24 @@ const FeedbackForm = () => {
       }
     }
   };
-  const handleSubmit = (event) =>{
-    event.preventDefault()
-  }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
 
   return (
     <>
-    <Nav position="static" variant="h5" text="Feedback"/>
-      <div className="section">
-        <form >
-          <CodingCampFeedback onchange={handleChange} valuerekomendasi={input.rekomendasi}/>
-          <TrainerFeedback/>
-          <EnvironmentFeedback onchange={handleChange} valuepelaksanaan={input.pelaksanaan} valuekepuasan={input.kepuasan} valuekejelasan={input.kejelasan}/>
-          <Button
-            text="submit"
-            onClick={handleSubmit}
-          />
-        </form>
-      </div>
-      <Footer text="copyright &copy; coding camp "/>
+      <Nav position="static" variant="h5" text="Feedback" />
+      <Section>
+        <Form
+          onchange={handleChange}
+          onsubmit={handleSubmit}
+          valuepelaksanaan={input.pelaksanaan}
+          valuekepuasan={input.kepuasan}
+          valuekejelasan={input.kejelasan}
+          valuerekomendasi={input.rekomendasi}
+        />
+      </Section>
+      <Footer text="copyright &copy; coding camp " />
     </>
   );
 };
