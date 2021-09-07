@@ -1,10 +1,11 @@
 import Label from "../../atoms/label/Label"
+import  "./style.css"
 const Footer=(props)=>{
     return(
         <footer>
         <Label
           text={props.text}
-          style={{ fontSize: "15px", fontWeight: "bold", color: "white" }}
+          className="footerLabel"
         />
       </footer>
     )

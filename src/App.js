@@ -1,8 +1,11 @@
-import FeedbackForm from './templates/FeedbackForm';
+import FeedbackForm from "./templates/FeedbackForm";
+
 const App = () => {
   return (
+
     <FeedbackForm/>
+ 
   );
-}
+};
 
 export default App;

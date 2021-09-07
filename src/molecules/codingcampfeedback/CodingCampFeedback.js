@@ -1,64 +1,59 @@
 import Label from "../../atoms/label/Label";
-import TextField from "../../atoms/textfield/TextField";
 import RadioButton from "../../atoms/radiobutton/RadioButton";
+import Star from "../../atoms/star/Star";
+import Button from "../../atoms/button/Button";
 
 const CodingCampFeedback = (props) => {
   return (
     <>
       <Label
         text="CODING CAMP FEEDBACK"
-        style={{
-          display: "block",
-          marginBottom: "10px",
-          fontSize: "20px",
-          color: "#3f51b5",
-          fontWeight: "bold",
-          marginTop: "30px",
-        }}
+        className="title"
       />
-      <TextField
-        label="Rate Manfaat Bootcamp"
-        type="number"
-        name="rate-membantu"
-        inputProps={{ min: 1, max: 5 }}
-        style={{ width: "350px", marginBottom: "10px" }}
+      <Label
+        text="Seberapakah membantu pelatihan Coding Camp ini untuk anda ? "
+        className="question"
+      />
+      <Star
+        name="ratemembantu"
+        value={props.ratemembantu}
+        onChange={props.onchange}
       />
       <br />
-      <TextField
-        label="Rate materi sesuai untuk menjadi Developer"
-        type="number"
-        name="rate-sesuai"
-        inputProps={{ min: 1, max: 5 }}
-        style={{ width: "350px", marginBottom: "10px" }}
+      <Label
+        text="Apakah materi yang diberikan sudah sesuai untuk menjadi seorang Developer ?"
+        className="question"
+      />
+      <Star
+        name="ratesesuai"
+        value={props.ratesesuai}
+        onChange={props.onchange}
       />
       <br />
-      <TextField
-        label="Rate materi menarik"
-        type="number"
-        name="rate-menarik"
-        inputProps={{ min: 1, max: 5 }}
-        style={{ width: "350px", marginBottom: "10px" }}
+      <Label
+        text="Apakah materi pelatihan Coding Camp ini menarik ?"
+        className="question"
+      />
+      <Star
+        name="ratemenarik"
+        value={props.ratemenarik}
+        onChange={props.onchange}
       />
       <br />
-      <TextField
-        label="Rate materi mudah dipahami"
-        type="number"
-        name="rate-paham"
-        inputProps={{ min: 1, max: 5 }}
-        style={{ width: "350px", marginRight: "10px" }}
+      <Label
+        text="Apakah materi pelatihan Coding Camp ini mudah dipahami ?"
+        className="question"
+      />
+      <Star
+        name="ratedipahami"
+        value={props.ratedipahami}
+        onChange={props.onchange}
       />
       <br />
 
       <Label
         text="Apakah anda ingin merekomendasikan pelatihan ini ke teman ? "
-        style={{
-          display: "block",
-          marginBottom: "10px",
-          marginTop: "10px",
-          fontSize: "15px",
-          color: "black",
-          fontWeight: "bold",
-        }}
+        className="question"
       />
       <RadioButton
         buttonvalue={["ya", "tidak", "mungkin"]}
@@ -67,6 +62,8 @@ const CodingCampFeedback = (props) => {
         groupvalue={props.valuerekomendasi}
         onchange={props.onchange}
       />
+     
+      <Button text="Next" onClick={()=>props.handlepage(2)}/> 
     </>
   );
 };
