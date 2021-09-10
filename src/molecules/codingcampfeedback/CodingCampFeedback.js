@@ -15,7 +15,7 @@ const CodingCampFeedback = (props) => {
           className="formInfo"
         />
       )}
-      <Label text="CODING CAMP FEEDBACKs" className="title" />
+      <Label text="CODING CAMP FEEDBACK" className="title" />
       <Label
         text="Seberapakah membantu pelatihan Coding Camp ini untuk anda ? "
         className="question"
