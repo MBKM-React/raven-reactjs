@@ -7,23 +7,24 @@ const EnvironmentFeedback = (props) => {
   const Offline = () => {
     return (
       <div>
+        <Label text="OFFLINE" className="title" />
         <Label
           text="Apakah anda puas dengan lingkungan pekerjaan di PT. Mitra Integrasi Informatika ?"
           className="question"
         />
-        <Star name="ratepuas" value={props.ratepuas} onChange={props.onchange} />
+        <Star name="ratepuas" value={props.ratepuas} onChange={props.onChange} />
         <br />
         <Label
           text="Apakah keperluan belajar (Papan Tulis, Projector, Alat Tulis, Meja, dll) sudah terpenuhi pada saat pembelajaran ?"
           className="question"
         />
-        <Star name="rateterpenuhi" value={props.rateterpenuhi} onChange={props.onchange} />
+        <Star name="rateterpenuhi" value={props.rateterpenuhi} onChange={props.onChange} />
         <br />
         <Label
           text="Apakah suasana ruangan sudah memenuhi kriteria untuk suasana belajar ?"
           className="question"
         />
-        <Star name="ratesuasana" value={props.ratesuasana} onChange={props.onchange} />
+        <Star name="ratesuasana" value={props.ratesuasana} onChange={props.onChange} />
         <br />
       </div>
     );
@@ -31,6 +32,7 @@ const EnvironmentFeedback = (props) => {
   const Online = () => {
     return (
       <div>
+        <Label text="ONLINE" className="title" />
         <Label
           text="Apakah anda puas dengan aplikasi conference yang digunakan ?"
           className="question"
@@ -40,7 +42,7 @@ const EnvironmentFeedback = (props) => {
           buttonlabel={["ya", "tidak"]}
           groupname={"kepuasan"}
           groupvalue={props.valuekepuasan}
-          onchange={props.onchange}
+          onChange={props.onChange}
         />
 
         <Label
@@ -52,7 +54,7 @@ const EnvironmentFeedback = (props) => {
           buttonlabel={["ya", "tidak", "terkadang"]}
           groupname={"kejelasan"}
           groupvalue={props.valuekejelasan}
-          onchange={props.onchange}
+          onChange={props.onChange}
         />
 
         <Label
@@ -83,13 +85,13 @@ const EnvironmentFeedback = (props) => {
         buttonlabel={["online", "offline", "keduanya"]}
         groupname={"pelaksanaan"}
         groupvalue={props.valuepelaksanaan}
-        onchange={props.onchange}
+        onChange={props.onChange}
       />
 
       {props.valuepelaksanaan === "online" && <Online />}
       {props.valuepelaksanaan === "offline" && <Offline />}
       {props.valuepelaksanaan === "keduanya" && <Both />}
-      <Button text="Prev" onClick={()=>props.handlepage(2)} /> 
+      <Button text="Prev" onClick={()=>props.onChangePage(2)} /> 
     </>
   );
 };

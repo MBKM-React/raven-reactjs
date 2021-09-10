@@ -10,9 +10,17 @@ const useStyles = makeStyles({
     display: "block",
     marginBottom: "10px",
     fontSize: "20px",
-    color: "#3f51b5",
+    color: "white",
     fontWeight: "bold",
     marginTop: "20px",
+    background:"#3f51b5",
+    paddingLeft:30,
+    paddingTop:10,
+    paddingBottom:10,
+  
+    borderBottomRightRadius:100,
+    borderTopLeftRadius:100,
+    width:500,
   },
   question:{
     display: "block",

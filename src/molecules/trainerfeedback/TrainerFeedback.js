@@ -4,6 +4,7 @@ import TextArea from "../../atoms/textarea/TextArea";
 import Star from "../../atoms/star/Star";
 import Button from "../../atoms/button/Button";
 import AddIcon from "@material-ui/icons/Add";
+import CloseIcon from "@material-ui/icons/Close";
 import React, { useState } from "react";
 
 const TrainerFeedback = (props) => {
@@ -11,79 +12,93 @@ const TrainerFeedback = (props) => {
 
   const handleChangeForm = (index) => {
     setActive(index);
-    
   };
-
   return (
     <>
       <Label text="TRAINER FEEDBACK" className="title" />
       {props.dataTrainer.map((data, index) => {
         return (
           <>
-            <Button
-              text={`Form${index + 1}`}
-              onClick={() => handleChangeForm(index)}
-            ></Button>
+            <div style={{ display: "inline-block" }}>
+              <Button
+                text={`Form${index + 1}`}
+                variant={active===index?"outlined":"contained"}
+                type="delete"
+                onClick={() => handleChangeForm(index)}
+              ></Button>
+              {index !== 0 && (
+                <Button
+                  className="delete"
+                  color="secondary"
+                  startIcon={<CloseIcon />}
+                  onClick={() => {
+                    handleChangeForm(index - 1);
+                    props.onDelete(index);
+                  }}
+                />
+              )}
+            </div>
           </>
         );
       })}
       <Button
-        text="New Form"
         startIcon={<AddIcon />}
-        onClick={props.onadd}
+        className="plus"
+        onClick={() => {
+          props.onadd(handleChangeForm);
+        }}
       ></Button>
       <br />
       <br />
-            <TextField
-              label="Nama Trainer"
-              name={`namatrainer-${active}`}
-              onChange={props.onchange}
-              value={props.dataTrainer[active].namatrainer}
-              className="trainer"
-            />
-            <br />
-            <Label
-              text="Bagaimana cara penyampaian materi ?"
-              className="question"
-            />
-            <Star
-              name={`ratepenyampaian-${active}`}
-              value={props.dataTrainer[active].ratepenyampaian}
-              onChange={props.onchange}
-            />
-            <br />
+      <TextField
+        label="Nama Trainer"
+        name={`namatrainer-${active}`}
+        onChange={props.onChange}
+        value={props.dataTrainer[active].namatrainer}
+        className="trainer"
+      />
+      <br />
+      <Label text="Bagaimana cara penyampaian materi ?" className="question" />
+      <Star
+        name={`ratepenyampaian-${active}`}
+        value={props.dataTrainer[active].ratepenyampaian}
+        onChange={props.onChange}
+      />
+      <br />
 
-            <Label
-              text="Apakah Trainer pada masing - masing segment menguasai materi ?"
-              className="question"
-            />
-            <Star
-              name={`ratepenguasaan-${active}`}
-              value={props.dataTrainer[active].ratepenguasaan}
-              onChange={props.onchange}
-            />
-            <br />
-            <Label
-              text="Bagaimana interaksi Trainer dengan peserta Coding Camp ?"
-              className="question"
-            />
-            <Star
-              name={`rateinteraksi-${active}`}
-              value={props.dataTrainer[active].rateinteraksi}
-              onChange={props.onchange}
-            />
-            <br />
-            <TextArea
-              name={`sarantrainer-${active}`}
-              placeholder="Saran untuk Trainer"
-              value={props.dataTrainer[active].saran}
-              onChange={props.onchange}
-            />
-            <br />
-    
-      <Button text="Prev" onClick={() => props.handlepage(1)} />
-      <Button text="Next" onClick={() => props.handlepage(3)} />
-     
+      <Label
+        text="Apakah Trainer pada masing - masing segment menguasai materi ?"
+        className="question"
+      />
+      <Star
+        name={`ratepenguasaan-${active}`}
+        value={props.dataTrainer[active].ratepenguasaan}
+        onChange={props.onChange}
+      />
+      <br />
+      <Label
+        text="Bagaimana interaksi Trainer dengan peserta Coding Camp ?"
+        className="question"
+      />
+      <Star
+        name={`rateinteraksi-${active}`}
+        value={props.dataTrainer[active].rateinteraksi}
+        onChange={props.onChange}
+      />
+      <br />
+      <Label
+        text="Saran untuk Trainer"
+        className="question"
+      />
+      <TextArea
+        name={`sarantrainer-${active}`}
+        value={props.dataTrainer[active].saran}
+        onChange={props.onChange}
+      />
+      <br />
+
+      <Button text="Prev" onClick={() => props.onChangePage(1)} />
+      <Button text="Next" onClick={() => props.onChangePage(3)} />
     </>
   );
 };

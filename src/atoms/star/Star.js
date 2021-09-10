@@ -31,7 +31,7 @@ const Star = (props) => {
     <div className={classes.root}>
       <Rating
         name={props.name}
-        value={props.value}
+        value={parseFloat(props.value)}
         precision={0.5}
         onChange={props.onChange}
         onChangeActive={(event, newHover) => {
@@ -39,7 +39,7 @@ const Star = (props) => {
         }}
       />
       {props.value !== null && (
-        <Box ml={2}>{labels[hover !== -1 ? hover : props.value]}</Box>
+        <Box ml={2}>{labels[hover !== -1 ? hover : parseFloat(props.value)]}</Box>
       )}
     </div>
   );

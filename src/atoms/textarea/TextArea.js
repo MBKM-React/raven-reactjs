@@ -14,7 +14,7 @@ const TextArea = (props) => {
       minRows={props.minRows}
       placeholder={props.placeholder}
       name={props.name}
-      onChange={props.Onchange}
+      onChange={props.onChange}
       value={props.value}
     />
   );

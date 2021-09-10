@@ -1,15 +1,21 @@
+import React, { useState } from "react";
 import Label from "../../atoms/label/Label";
 import RadioButton from "../../atoms/radiobutton/RadioButton";
 import Star from "../../atoms/star/Star";
 import Button from "../../atoms/button/Button";
-
+import { Alertt } from "../../atoms/alert/Alert";
 const CodingCampFeedback = (props) => {
+  const [error, seterror] = useState("");
   return (
     <>
-      <Label
-        text="CODING CAMP FEEDBACK"
-        className="title"
-      />
+      {props.error && (
+        <Alertt
+          severity="error"
+          text={`This is an error alert — <strong>${error}</strong>`}
+          className="formInfo"
+        />
+      )}
+      <Label text="CODING CAMP FEEDBACK" className="title" />
       <Label
         text="Seberapakah membantu pelatihan Coding Camp ini untuk anda ? "
         className="question"
@@ -17,7 +23,7 @@ const CodingCampFeedback = (props) => {
       <Star
         name="ratemembantu"
         value={props.ratemembantu}
-        onChange={props.onchange}
+        onChange={props.onChange}
       />
       <br />
       <Label
@@ -27,7 +33,7 @@ const CodingCampFeedback = (props) => {
       <Star
         name="ratesesuai"
         value={props.ratesesuai}
-        onChange={props.onchange}
+        onChange={props.onChange}
       />
       <br />
       <Label
@@ -37,7 +43,7 @@ const CodingCampFeedback = (props) => {
       <Star
         name="ratemenarik"
         value={props.ratemenarik}
-        onChange={props.onchange}
+        onChange={props.onChange}
       />
       <br />
       <Label
@@ -47,7 +53,7 @@ const CodingCampFeedback = (props) => {
       <Star
         name="ratedipahami"
         value={props.ratedipahami}
-        onChange={props.onchange}
+        onChange={props.onChange}
       />
       <br />
 
@@ -60,10 +66,15 @@ const CodingCampFeedback = (props) => {
         buttonlabel={["ya", "tidak", "mungkin"]}
         groupname={"rekomendasi"}
         groupvalue={props.valuerekomendasi}
-        onchange={props.onchange}
+        onChange={props.onChange}
       />
-     
-      <Button text="Next" onClick={()=>props.handlepage(2)}/> 
+
+      <Button
+        text="Next"
+        onClick={() => {
+          props.onChangePage(2);
+        }}
+      />
     </>
   );
 };

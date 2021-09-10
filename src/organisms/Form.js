@@ -3,18 +3,10 @@ import TrainerFeedback from "../molecules/trainerfeedback/TrainerFeedback";
 import EnvironmentFeedback from "../molecules/environmentfeedback/EnvironmentFeedback";
 import Button from "../atoms/button/Button";
 import { Alertt } from "../atoms/alert/Alert";
-import { useForm } from "react-hook-form";
 
 const Form = (props) => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
   return (
-    <form onSubmit={handleSubmit(props.onSubmit)}>
+    <form >
       <Alertt
         severity="info"
         text="This form is used to improve the quality of our services"
@@ -23,8 +15,8 @@ const Form = (props) => {
       {props.page === 1 && (
         <>
           <CodingCampFeedback
-            handlepage={props.handlepage}
-            onchange={props.onchange}
+            onChangePage={props.onChangePage}
+            onChange={props.onChange}
             valuerekomendasi={props.valuerekomendasi}
             ratemembantu={props.ratemembantu}
             ratesesuai={props.ratesesuai}
@@ -37,16 +29,17 @@ const Form = (props) => {
       {props.page === 2 && (
         <TrainerFeedback
           dataTrainer={props.dataTrainer}
-          handlepage={props.handlepage}
-          onchange={props.onchange}
+          onChangePage={props.onChangePage}
+          onDelete={props.onDelete}
+          onChange={props.onChange}
           onadd={props.onadd}
         />
       )}
 
       {props.page === 3 && (
         <EnvironmentFeedback
-          handlepage={props.handlepage}
-          onchange={props.onchange}
+        onChangePage={props.onChangePage}
+          onChange={props.onChange}
           valuepelaksanaan={props.valuepelaksanaan}
           valuekepuasan={props.valuekepuasan}
           valuekejelasan={props.valuekejelasan}

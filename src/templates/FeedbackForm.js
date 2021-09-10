@@ -12,20 +12,20 @@ const FeedbackForm = () => {
     kejelasan: "",
     rekomendasi: "",
     pelaksanaan: "",
-    ratemembantu: "",
-    ratesesuai: "",
-    retemenarik: "",
-    ratedipahami: "",
-    ratepuas: "",
-    rateterpenuhi: "",
-    ratesuasana: "",
+    ratemembantu: 0,
+    ratesesuai: 0,
+    retemenarik: 0,
+    ratedipahami: 0,
+    ratepuas: 0,
+    rateterpenuhi: 0,
+    ratesuasana: 0,
     data: [
       {
         namatrainer: "",
-        ratepenyampaian: "",
-        ratepenguasaan: "",
-        rateinteraksi: "",
-        saran: "ff",
+        ratepenyampaian: 0,
+        ratepenguasaan: 0,
+        rateinteraksi: 0,
+        saran: "",
       },
     ],
   });
@@ -33,22 +33,28 @@ const FeedbackForm = () => {
   const handlePage = (number) => {
     setPage(number);
   };
-  const handleAdd = () => {
+ 
+  const handleAdd = (handleChangeForm) => {
     let newobject = {
       namatrainer: "",
-      ratepenyampaian: "",
-      ratepenguasaan: "",
-      rateinteraksi: "",
+      ratepenyampaian: 0,
+      ratepenguasaan: 0,
+      rateinteraksi: 0,
       saran: "",
     };
 
     const newArray = input.data.slice();
     newArray.push(newobject);
     setInput({ data: newArray });
+    handleChangeForm(input.data.length);
+  };
+  const handleDelete = (index) => {
+    const newArray = input.data.slice();
+    newArray.splice(index, 1);
+    setInput({ data: newArray });
   };
   const handleChange = (event) => {
     let value = event.target.value;
-    //console.log(value)
     let rawName = event.target.name;
     let name = rawName.split("-")[0];
     let index = parseInt(rawName.split("-")[1]);
@@ -98,7 +104,6 @@ const FeedbackForm = () => {
         break;
       }
       case "namatrainer": {
-        //console.log(value)
         let { data: newdata } = input;
         input.data[index] = { ...newdata[index], namatrainer: value };
         setInput({ ...input, data: newdata });
@@ -124,7 +129,7 @@ const FeedbackForm = () => {
       }
       case "sarantrainer": {
         let { data: newdata } = input;
-        input.data[index] = { ...newdata[index], sarantrainer: value };
+        input.data[index] = { ...newdata[index], saran: value };
         setInput({ ...input, data: newdata });
         break;
       }
@@ -133,7 +138,7 @@ const FeedbackForm = () => {
       }
     }
   };
-  const onSubmit = input => console.log(input);
+  const handleSubmit = (input) => console.log(input);
 
   return (
     <>
@@ -142,10 +147,11 @@ const FeedbackForm = () => {
         <Form
           page={page}
           dataTrainer={input.data}
-          handlepage={handlePage}
-          onSubmit={onSubmit}
+          onChangePage={handlePage}
+          onDelete={handleDelete}
+          onSubmit={handleSubmit}
           onadd={handleAdd}
-          onchange={handleChange}
+          onChange={handleChange}
           valuepelaksanaan={input.pelaksanaan}
           valuekepuasan={input.kepuasan}
           valuekejelasan={input.kejelasan}
@@ -159,7 +165,7 @@ const FeedbackForm = () => {
           rateterpenuhi={input.rateterpenuhi}
         />
       </Section>
-      <Footer text="copyright &copy; coding camp " />
+      <Footer text="copyright &copy; ravenwijaya" />
     </>
   );
 };

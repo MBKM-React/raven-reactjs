@@ -16,13 +16,11 @@ const TextField = (props) => {
     <TxtField
       error={props.error === ""}
       helperText={props.error === "" ? 'Empty field!' : ' '}
-      dataId={props.dataId}
       id={props.id}
       type={props.type}
       variant={props.variant}
       label={props.label}
       name={props.name}
-      inputProps={props.inputProps}
       className={classes[props.className]}
       onChange={props.onChange}
       value={props.value}
